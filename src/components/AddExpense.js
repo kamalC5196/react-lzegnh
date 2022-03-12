@@ -7,7 +7,7 @@ const AddExpenses = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const name = e.target.elements.name.value;
-    const cost = e.target.elements.cost.value;
+    const cost = parseInt(e.target.elements.cost.value);
     const expense = {
       id: uuidv4(),
       name,
