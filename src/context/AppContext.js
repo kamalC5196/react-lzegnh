@@ -23,13 +23,9 @@ const AppReducer = (state, action) => {
 };
 
 const initialState = {
-  budjet: 2000,
+  budjet: 0,
   currency: { rupee: '₹', pound: '£', dollar: '$' },
-  expenses: [
-    { id: 12, name: 'shopping', cost: 40 },
-    { id: 13, name: 'holiday', cost: 400 },
-    { id: 14, name: 'car service', cost: 50 },
-  ],
+  expenses: [],
 };
 
 export const AppContext = createContext();
@@ -39,6 +35,7 @@ export const AppProvider = (props) => {
   const ref = useRef({
     isMount: false,
   });
+  //store expenses in localstorage
   useEffect(() => {
     if (ref.current.isMount) {
       console.log('fired');
@@ -46,12 +43,13 @@ export const AppProvider = (props) => {
     }
   }, [state]);
 
+  //initilize once
   useEffect(() => {
     const initialExpenses = JSON.parse(localStorage.getItem('expenses'));
     console.log(initialExpenses);
     dispatch({
       type: 'INITIAL_EXPENSE',
-      payload: initialExpenses,
+      payload: initialExpenses || initialState,
     });
     ref.current.isMount = true;
   }, []);
