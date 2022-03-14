@@ -15,6 +15,11 @@ const AppReducer = (state, action) => {
           (expense) => expense.id !== action.payload
         ),
       };
+    case 'UPDATE_BUDJET':
+      return {
+        ...state,
+        budjet: action.payload,
+      };
     case 'INITIAL_EXPENSE':
       return action.payload;
     default:
