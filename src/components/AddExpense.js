@@ -22,9 +22,7 @@ const AddExpenses = () => {
     <form onSubmit={handleFormSubmit}>
       <div className="form-row align-items-center">
         <div className="col-auto">
-          <label className="sr-only" for="inlineFormInput">
-            Name
-          </label>
+          <label className="sr-only">Name</label>
           <input
             type="text"
             className="form-control mb-2"
@@ -34,9 +32,7 @@ const AddExpenses = () => {
           />
         </div>
         <div className="col-auto">
-          <label className="sr-only" for="inlineFormInputGroup">
-            Cost
-          </label>
+          <label className="sr-only">Cost</label>
           <div className="input-group mb-2">
             <div className="input-group-prepend"></div>
             <input
